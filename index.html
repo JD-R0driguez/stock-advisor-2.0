@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Stock Adviser</title>
+  <link rel="stylesheet" href="./src/styles.css" />
+</head>
+<body>
+
+    <div id="large-header" class="large-header">
+        <canvas id="demo-canvas"></canvas>
+    </div>
+
+    <nav class="navbar">
+        <a href="/" class="navbar-brand">
+            <span>Mock</span>
+            <span>Market</span>
+        </a>
+      
+        <div class="navbar-links">
+            <a href="./docs.html" class="navbar-link">Docs</a>
+            <a href="./about.html" class="navbar-link">About</a>
+            <a href="https://github.com/your-username" target="_blank" class="navbar-link">GitHub</a>
+        </div>
+      </nav>
+
+  <div id="app">
+    <header>
+        <h2>Brutaly Honest Advice</h2>
+        <p>Add up to 3 stock tickers to get a stock predictions report</p>
+    </header>
+
+    <section class="search-section">
+        <div class="companySearch-wrapper">
+            <input
+            type="text"
+                id="company-input"
+                placeholder="Search for a company (S&P 500)"
+                autocomplete="off"    
+            />
+            <button class="plus-button" aria-label="Add company" id="add-ticker-btn"></button>
+            <div id="suggestions"></div>
+        </div>
+        <!-- <div class="not-found">
+            <span>Oops! That’s not in the S&P 500.</span>
+        </div> -->
+        <!-- <div class="selected-companies">
+            <div id="tickers-container"></div>
+        </div> -->
+
+        <section class="selected-companies">
+            <div id="tickers-container"></div>
+            <!-- Move the not-found below tickers so it only shifts this section -->
+            <div class="not-found">
+                <span>Oops! That’s not in the S&P 500.</span>
+            </div>
+        </section>
+
+        <button class="get-report" id="get-report-btn" disabled>Get Report</button>
+        
+    </section>
+    
+
+    <!-- Loading Section (hidden by default) -->
+    <section class="loading-section" id="loadingSection" hidden>
+      <!-- <img src="./public/loader.svg" alt="Loading..." class="loader"/> -->
+      <p>Generating your report...</p>
+    </section>
+
+    <!-- Report Display Section (hidden by default) -->
+    <section class="report-section" id="reportSection" hidden>
+      <h2>Investment Advice</h2>
+      <p id="adviceContent"></p>
+    </section>
+  </div>
+
+  <!-- Main JS for the app logic -->
+  <script src="./src/index.js"></script>
+  <!-- Separate animation JS -->
+  <script src="./src/animation.js"></script>
+  <!-- <script src="./src/animation-1.js"></script> -->
+
+</body>
+</html>
