@@ -174,5 +174,19 @@ function updateButtonStates() {
 }
   
 async function fetchStockData(tickers) {
-    console.log('fetching stock data');
+    try {
+        const response = await fetch('../api/polygon', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(tickers)
+        });
+        const result = await response.json();
+        if (response.ok) {
+            console.log('Stock data:', result.data);
+        } else {
+            console.error('Error:', result.error);
+        }
+        } catch (error) {
+        console.error('Request failed:', error);
+        }
 }
