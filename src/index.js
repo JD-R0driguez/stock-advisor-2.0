@@ -175,7 +175,7 @@ function updateButtonStates() {
   
 async function fetchStockData(tickers) {
     try {
-        const response = await fetch('../api/polygon', {
+        const response = await fetch('/api/polygon', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(tickers)
