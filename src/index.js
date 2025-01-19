@@ -169,16 +169,16 @@ function removeTicker(tickerText) {
 
 function updateButtonStates() {
     generateReportBtn.disabled = tickersArr.length === 0;
-    console.log(generateReportBtn.disabled)
     addTickerButton.disabled = tickersArr.length >= 3;
 }
   
-async function fetchStockData(tickers) {
+async function fetchStockData() {
+
     try {
         const response = await fetch('/api/polygon', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(tickers)
+            body: JSON.stringify(tickersArr)
         });
         const result = await response.json();
         if (response.ok) {
